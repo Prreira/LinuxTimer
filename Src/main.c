@@ -61,38 +61,33 @@ int	Timer(t_timing *time)
 	time->timer = readline("Timer: ");
 	char *token;
 	token = strtok(time->timer, ":");
-	time->hour = atoi(token);
+	time->hourt = atoi(token);
 	token = strtok(NULL, ":");
-	time->minute = atoi(token);
+	time->minutet = atoi(token);
 	token = strtok(NULL, ":");
-	time->second = atoi(token);
-	printf(" %d:%d:%d\n",time->hour,time->minute,time->second);
-	while (1)
+	time->secondt = atoi(token);
+	while(1)
 	{
-		if (time->second == 0)
+		if(time->minute > 59)
 		{
-			if (time->minute != 0)
-			{
-				time->second = 59;
-				--time->minute;
-			}
+			time->minute = 0;
+			++time->hour;
 		}
-		if (time->minute == 0)
+		if(time->second > 59)
 		{
-			if (time->hour != 0)
-			{
-				time->minute = 59;
-				--time->hour;
-			}
-				
+			time->second = 0;
+			++time->minute;
 		}
 		printData(time);
-		if (time->hour == 0 && time->minute == 0 && time->second == 0)
-			break;
-		else
+		sleep(1);
+		time->second += 1;
+		if (time->hour == time->hourt && time->minute == time->minutet \
+		&& time->second == time->secondt)
 		{
-			sleep(1);
-			time->second -= 1;
+			time->hour = 0;
+			time->minute = 0;
+			time->second = 0;
+			break;
 		}
 	}
 	return (0);

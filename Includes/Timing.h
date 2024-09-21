@@ -11,8 +11,11 @@ typedef struct s_timing{
 	char *option;
 	char *timer;
 	int hour;
+	int hourt;
 	int	minute;
+	int minutet;
 	int second;
+	int secondt;
 }	t_timing;
 
 #endif
