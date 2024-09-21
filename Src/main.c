@@ -98,8 +98,11 @@ void	init(t_timing *time)
 	time->option = NULL;
 	time->timer= NULL;
 	time->hour = 0;
+	time->hourt = 0;
 	time->minute = 0;
+	time->minutet = 0;
 	time->second = 0;
+	time->secondt = 0;
 }
 
 int	main(int argc, char **argv)
